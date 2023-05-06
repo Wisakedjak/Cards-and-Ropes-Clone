@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
             {
                 if (t.GetComponent<SlotHolder>().isFull) continue;
                 GameObject createdCard = Instantiate(level1CardGameObject, t);
-                createdCard.transform.localPosition = new Vector3(0, .12f, 0);
+                createdCard.transform.localPosition = new Vector3(0, .2f, 0);
                 t.GetComponent<SlotHolder>().isFull = true;
                 cards.Add(createdCard.gameObject);
                 money -= moneyForCreateCard;

@@ -403,8 +403,10 @@
 "Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/Wrappable.cs"
 "Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/WrapRopeGameController.cs"
 "Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/WrapRopePlayerController.cs"
+"Assets/Scripts/CardDrag.cs"
 "Assets/Scripts/CardMove.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/OnMouseOver.cs"
 "Assets/Scripts/RopeColliderScript.cs"
 "Assets/Scripts/SlotHolder.cs"
 -langversion:9.0

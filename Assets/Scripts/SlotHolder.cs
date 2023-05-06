@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,15 @@ using UnityEngine;
 public class SlotHolder : MonoBehaviour
 {
     public bool isFull;
-    // Start is called before the first frame update
-    void Start()
+    private void OnMouseOver()
     {
-        
+        CardDrag.Instance.isOverSlot = true;
+        CardDrag.Instance.slotOver = gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseExit()
     {
-        
+        CardDrag.Instance.isOverSlot = false;
+        CardDrag.Instance.slotOver = null;
     }
 }

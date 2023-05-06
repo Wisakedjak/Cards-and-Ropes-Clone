@@ -85,6 +85,8 @@
      <Compile Include="Assets/Scripts/RopeColliderScript.cs" />
      <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Scripts/SlotHolder.cs" />
+     <Compile Include="Assets/Scripts/CardDrag.cs" />
+     <Compile Include="Assets/Scripts/OnMouseOver.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Animations" />
      <Folder Include="Assets/Obi/Resources/ObiMaterials" />
@@ -114,6 +116,7 @@
      <Folder Include="Assets/Materials/Card1Mats" />
      <None Include="Assets/Obi/Resources/ObiMaterials/DistanceFieldSlice.shader" />
      <None Include="Assets/Obi/Resources/ObiMaterials/ObiParticles.cginc" />
+     <Folder Include="Assets/Prefabs" />
      <Folder Include="Assets/Resources" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/DistanceFields" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />

@@ -41,6 +41,7 @@ public class CardMove : MonoBehaviour
 
     public void ThrowCard()
     {
+        GetComponent<ObiCollider>().enabled = true;
         _move();
         _rotate();
     }
