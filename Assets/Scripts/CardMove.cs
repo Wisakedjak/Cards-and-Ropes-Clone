@@ -25,7 +25,7 @@ public class CardMove : MonoBehaviour
     {
         _isMoving = false;
         _moveTween.Kill();
-        transform.DOMoveZ(transform.position.z + 2.5f, 1f).OnComplete(()=>transform.DOMoveZ(transform.position.z - 5f, .5f).OnComplete(()=>_move()));
+        transform.DOMoveZ(transform.position.z + 2.5f, .5f).OnComplete(()=>transform.DOMoveZ(transform.position.z - 5f, .25f).OnComplete(()=>_move()));
     }
 
     void _rotate()
@@ -36,15 +36,20 @@ public class CardMove : MonoBehaviour
 
     void _move()
     {
-        _moveTween=transform.DOMoveZ(30f, 15f);
+        _moveTween=transform.DOMoveZ(100f, 10f);
+    }
+
+    public void ThrowCard()
+    {
+        _move();
+        _rotate();
     }
 
     private void OnEnable()
     {
         //_isMoving = true;
-        _move();
-        _rotate();
-        solver.OnCollision += solver_OnCollision;
+       
+        //solver.OnCollision += solver_OnCollision;
     }
 
     void StartMove()

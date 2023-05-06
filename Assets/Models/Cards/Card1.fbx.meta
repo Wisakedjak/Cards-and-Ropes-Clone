@@ -3,7 +3,17 @@ guid: d87fa6a825a7a41e18cd18d323ca94b0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CardTexture
+    second: {fileID: 2100000, guid: 7a78a81db57084c0f8b555993f1305dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ColourPalette
+    second: {fileID: 2100000, guid: dbde80168832e4cff92a413a782a3d69, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
