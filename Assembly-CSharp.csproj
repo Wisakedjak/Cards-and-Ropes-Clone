@@ -87,6 +87,7 @@
      <Compile Include="Assets/Scripts/SlotHolder.cs" />
      <Compile Include="Assets/Scripts/CardDrag.cs" />
      <Compile Include="Assets/Scripts/OnMouseOver.cs" />
+     <Compile Include="Assets/Scripts/ChestTrigger.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Animations" />
      <Folder Include="Assets/Obi/Resources/ObiMaterials" />
@@ -161,6 +162,7 @@
      <Folder Include="Assets/Obi/Samples/Common/SampleResources" />
      <Folder Include="Assets/Obi/Plugins/iOS" />
      <Folder Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Animations" />
+     <Folder Include="Assets/Prefabs/Cards" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Materials" />
      <Folder Include="Assets/Models/Cards" />

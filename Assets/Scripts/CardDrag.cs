@@ -27,13 +27,17 @@ public class CardDrag : MonoBehaviour
 
                 if (hit.collider!=null)
                 {
-                    if (!hit.collider.CompareTag("Card"))
+                    if (hit.collider.CompareTag("Card")||hit.collider.CompareTag("ChestCollected"))
+                    {
+                        _selectedObject = hit.collider.gameObject;
+                        GameManager.instance.CloseColliders();
+                    }
+                    else
                     {
                         return;
                     }
 
-                    _selectedObject = hit.collider.gameObject;
-                    GameManager.instance.CloseColliders();
+                    
                 }
             }
         }
@@ -69,12 +73,31 @@ public class CardDrag : MonoBehaviour
                     }
                     else
                     {
-                        if (slotOver.GetComponent<SlotHolder>().cardLevel==_selectedObject.transform.parent.GetComponent<SlotHolder>().cardLevel)
+                        if (_selectedObject!=slotOver.GetComponent<SlotHolder>().cardInSlot)
                         {
-                            print("cardMerge");
-                            GameManager.instance.MergeCard(_selectedObject,slotOver,slotOver.GetComponent<SlotHolder>().cardLevel);
+                            if (slotOver.GetComponent<SlotHolder>().cardLevel==_selectedObject.transform.parent.GetComponent<SlotHolder>().cardLevel)
+                            {
+                                if (_selectedObject.CompareTag("Card"))
+                                {
+                                    GameManager.instance.MergeCard(_selectedObject,slotOver,slotOver.GetComponent<SlotHolder>().cardLevel);
+                                }
+                                else
+                                {
+                                    GameManager.instance.MergeChest(_selectedObject,slotOver,slotOver.GetComponent<SlotHolder>().cardLevel);
+                                }
+                                print("cardMerge");
                             
+                            
+                            }
                         }
+                        else
+                        {
+                            if (_selectedObject.CompareTag("ChestCollected"))
+                            {
+                                GameManager.instance.CreateCardFromChest(_selectedObject,slotOver,slotOver.GetComponent<SlotHolder>().cardLevel);
+                            }
+                        }
+                        
                     }
                 }
                 else

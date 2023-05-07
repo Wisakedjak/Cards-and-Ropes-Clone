@@ -8,9 +8,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private List<Transform> slots = new List<Transform>();
+    public List<Transform> slots = new List<Transform>();
     [SerializeField] private List<GameObject> cards = new List<GameObject>();
+    public List<GameObject> chests = new List<GameObject>();
     [SerializeField] private List<GameObject> cardPrefabs = new List<GameObject>();
+    [SerializeField] private List<GameObject> chestPrefabs = new List<GameObject>();
     [SerializeField]private GameObject level1CardGameObject;
     public int money;
     [SerializeField]private int moneyForCreateCard;
@@ -60,6 +62,39 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void DestroyCardAndCheckGameOver(GameObject card)
+    {
+        _destroyCardAndCheckGameOver(card);
+    }
+
+    private void _destroyCardAndCheckGameOver(GameObject card)
+    {
+        cards.Remove(card);
+        Destroy(card);
+        if (cards.Count<=0)
+        {
+            _gameOver();
+        }
+    }
+
+    private void _gameOver()
+    {
+        print("gameOver");
+    }
+
+    public void GainMoney(int money)
+    {
+        StartCoroutine(GainMoneyCoroutine(money));
+    }
+
+    IEnumerator GainMoneyCoroutine(int money)
+    {
+        yield return new WaitForSeconds(.3f);
+        this.money += money;
+        moneyText.text = this.money.ToString();
+
+    }
+
     public void MergeCard(GameObject selectedObject,GameObject slotOver,int cardLevel)
     {
         _mergeCard(selectedObject,slotOver,cardLevel);
@@ -84,6 +119,32 @@ public class GameManager : MonoBehaviour
        
         cards.Add(createdCard.gameObject);
     }
+
+    public void MergeChest(GameObject selectedObject,GameObject slotOver,int cardLevel)
+    {
+        _mergeChest(selectedObject,slotOver,cardLevel);
+    }
+
+    private void _mergeChest(GameObject selectedObject,GameObject slotOver,int cardLevel)
+    {
+        chests.Remove(selectedObject);
+        chests.Remove(slotOver.GetComponent<SlotHolder>().cardInSlot);
+        var parent = selectedObject.transform.parent;
+        parent.GetComponent<SlotHolder>().isFull = false;
+        parent.GetComponent<SlotHolder>().cardLevel = 0;
+        parent.GetComponent<SlotHolder>().cardInSlot = null;
+        var t = slotOver.transform;
+        Destroy(selectedObject);
+        Destroy(slotOver.GetComponent<SlotHolder>().cardInSlot);
+        GameObject createdChest = Instantiate(chestPrefabs[cardLevel], t);
+        createdChest.transform.localPosition = new Vector3(0, .12f, 0);
+        t.GetComponent<SlotHolder>().isFull = true;
+        t.GetComponent<SlotHolder>().cardLevel = cardLevel+1;
+        t.GetComponent<SlotHolder>().cardInSlot = createdChest;
+        chests.Add(createdChest.gameObject);
+        createdChest.tag = "ChestCollected";
+    }
+    
 
     void _checkCreateButtonIntractability()
     {
@@ -125,18 +186,57 @@ public class GameManager : MonoBehaviour
 
     private void _closeColliders()
     {
-        foreach (var t in cards)
+        if (cards.Count>0)
         {
-            t.GetComponent<BoxCollider>().enabled = false;
+            foreach (var t in cards)
+            {
+                t.GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+
+        if (chests.Count>0)
+        {
+            foreach (var t in chests)
+            {
+                t.GetComponent<BoxCollider>().enabled = false;
+            }
         }
     }  
     
     private void _openColliders()
     {
-        foreach (var t in cards)
+        if (cards.Count>0)
         {
-            t.GetComponent<BoxCollider>().enabled = true;
+            foreach (var t in cards)
+            {
+                t.GetComponent<BoxCollider>().enabled = true;
+            }
         }
+
+        if (chests.Count>0)
+        {
+            foreach (var t in chests)
+            {
+                t.GetComponent<BoxCollider>().enabled = true;
+            }
+        }
+        
+    }
+
+    public void CreateCardFromChest(GameObject selectedObject,GameObject slotOver,int cardLevel)
+    {
+        _createCardFromChest(selectedObject,slotOver,cardLevel);
+    }
+
+    private void _createCardFromChest(GameObject selectedObject,GameObject slotOver,int cardLevel)
+    {
+        chests.Remove(selectedObject);
+        Destroy(selectedObject);
+        GameObject createdCard = Instantiate(cardPrefabs[cardLevel-1], slotOver.transform);
+        createdCard.transform.localPosition = new Vector3(0, .12f, 0);
+        slotOver.GetComponent<SlotHolder>().cardLevel = cardLevel;
+        slotOver.GetComponent<SlotHolder>().cardInSlot = createdCard;
+        cards.Add(createdCard);
     }
 
     

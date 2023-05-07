@@ -11,21 +11,51 @@ public class CardMove : MonoBehaviour
     public ObiSolver solver;
     private bool _isMoving;
     private Tween _moveTween, _rotateTween;
+    [SerializeField] private int cardLevel;
+    private int _tearTry=5;
     void Start()
     {
         
     }
 
-    public void Trigger()
+    public void Trigger(int ropeLevel,GameObject rope,BoxCollider boxCollider)
     {
-        _trigger();
+        _trigger(ropeLevel,rope,boxCollider);
     }
 
-    void _trigger()
+    private void _trigger(int ropeLevel,GameObject rope,BoxCollider boxCollider)
     {
-        _isMoving = false;
-        _moveTween.Kill();
-        transform.DOMoveZ(transform.position.z + 2.5f, .5f).OnComplete(()=>transform.DOMoveZ(transform.position.z - 5f, .25f).OnComplete(()=>_move()));
+        
+        if (cardLevel>ropeLevel)
+        {
+            boxCollider.enabled = false;
+            rope.GetComponent<ObiRope>().tearingEnabled = true;
+            GameManager.instance.GainMoney(ropeLevel+1);
+            _tearTry--;
+        }
+        else
+        {
+            _isMoving = false;
+            _moveTween.Kill();
+            _tearTry--;
+            boxCollider.gameObject.GetComponent<RopeColliderScript>().ropeLevel--;
+            if (_tearTry<=0)
+            {
+                transform.DOMoveZ(transform.position.z + 2.5f, .5f).OnComplete(()=>_destroyObject());
+            }
+            else
+            {
+                transform.DOMoveZ(transform.position.z + 2.5f, .5f).OnComplete(()=>transform.DOMoveZ(transform.position.z - 5f, .25f).OnComplete(()=>_move()));
+            }
+            
+        }
+        
+    }
+
+    void _destroyObject()
+    {
+        GameManager.instance.DestroyCardAndCheckGameOver(gameObject);
+        
     }
 
     void _rotate()
