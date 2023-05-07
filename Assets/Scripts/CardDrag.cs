@@ -33,6 +33,7 @@ public class CardDrag : MonoBehaviour
                     }
 
                     _selectedObject = hit.collider.gameObject;
+                    GameManager.instance.CloseColliders();
                 }
             }
         }
@@ -54,24 +55,36 @@ public class CardDrag : MonoBehaviour
                 {
                     if (!slotOver.GetComponent<SlotHolder>().isFull)
                     {
-                        _selectedObject.transform.parent.GetComponent<SlotHolder>().isFull = false;
-                        _selectedObject.transform.parent = slotOver.transform;
-                        _selectedObject.transform.localPosition = new Vector3(0, .2f, 0);
-                        _selectedObject.GetComponent<BoxCollider>().enabled = true;
+                        var parent = _selectedObject.transform.parent;
+                        parent.GetComponent<SlotHolder>().isFull = false;
+                        slotOver.GetComponent<SlotHolder>().cardLevel = parent.GetComponent<SlotHolder>().cardLevel;
+                        parent.GetComponent<SlotHolder>().cardLevel = 0;
+                        parent.GetComponent<SlotHolder>().cardInSlot = null;
+                        parent = slotOver.transform;
+                        parent.GetComponent<SlotHolder>().cardInSlot = _selectedObject;
+                        _selectedObject.transform.parent = parent;
+                        _selectedObject.transform.localPosition = new Vector3(0, .12f, 0);
                         slotOver.GetComponent<SlotHolder>().isFull = true;
                         _selectedObject = null;
                     }
                     else
                     {
-                        
+                        if (slotOver.GetComponent<SlotHolder>().cardLevel==_selectedObject.transform.parent.GetComponent<SlotHolder>().cardLevel)
+                        {
+                            print("cardMerge");
+                            GameManager.instance.MergeCard(_selectedObject,slotOver,slotOver.GetComponent<SlotHolder>().cardLevel);
+                            
+                        }
                     }
                 }
                 else
                 {
-                    _selectedObject.transform.localPosition = new Vector3(0, .2f, 0);
+                    _selectedObject.transform.localPosition = new Vector3(0, .12f, 0);
                     _selectedObject.GetComponent<BoxCollider>().enabled = true;
                     _selectedObject = null;
                 }
+                
+                GameManager.instance.OpenColliders();
             }
         }
     }

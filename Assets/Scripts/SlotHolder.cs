@@ -6,6 +6,8 @@ using UnityEngine;
 public class SlotHolder : MonoBehaviour
 {
     public bool isFull;
+    public int cardLevel;
+    public GameObject cardInSlot;
     private void OnMouseOver()
     {
         CardDrag.Instance.isOverSlot = true;
