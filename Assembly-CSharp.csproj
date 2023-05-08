@@ -46,6 +46,7 @@
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ObjectDragger.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/Wrappable.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ObiParticleCounter.cs" />
+     <Compile Include="Assets/Scripts/SceneController.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ColliderHighlighter.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/CollisionEventHandler.cs" />
      <Compile Include="Assets/Scripts/CardMove.cs" />
@@ -84,14 +85,13 @@
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/Blinker.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/HosePump.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RopeTenser.cs" />
+     <Compile Include="Assets/Scripts/EndZoneTrigger.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ExtrapolationCamera.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/SnakeController.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CharacterControl2D.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CursorController.cs" />
      <Compile Include="Assets/Scripts/CardDrag.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/WorldSpaceGravity.cs" />
-     <Compile Include="Assets/Scripts/SceneController.cs" />
-     <Compile Include="Assets/Scripts/EndZoneTrigger.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Animations" />
      <Folder Include="Assets/Obi/Resources/ObiMaterials" />

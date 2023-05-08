@@ -409,6 +409,7 @@
 "Assets/Scripts/CardDrag.cs"
 "Assets/Scripts/CardMove.cs"
 "Assets/Scripts/ChestTrigger.cs"
+"Assets/Scripts/EndZoneTrigger.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GiftBoxTrigger.cs"
 "Assets/Scripts/OnMouseOver.cs"

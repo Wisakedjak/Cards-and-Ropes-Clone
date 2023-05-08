@@ -13,7 +13,7 @@ public class PlayerPrefInitializer : MonoBehaviour
         }
         if (!PlayerPrefs.HasKey("CurrentGold"))
         {
-            PlayerPrefs.SetInt("CurrentGold", 50);
+            PlayerPrefs.SetInt("CurrentGold", 100);
         }
         if (!PlayerPrefs.HasKey("isSlot1Full"))
         {

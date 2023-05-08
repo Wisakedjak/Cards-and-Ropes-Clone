@@ -52,8 +52,9 @@ public class CardMove : MonoBehaviour
         
     }
 
-    void _destroyObject()
+    public void _destroyObject()
     {
+        _moveTween.Kill();
         _rotateTween.Kill();
         GameManager.instance.DestroyCardAndCheckGameOver(gameObject);
         

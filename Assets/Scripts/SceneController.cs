@@ -41,12 +41,11 @@ public class SceneController : MonoBehaviour
         }
 
         var solver = GameObject.FindGameObjectWithTag("ObiSolver");
-        solver.SetActive(false);
+        Destroy(solver);
     }
 
     private void _findAndCloseNewChests(AsyncOperation asyncOperation)
     {
-        print("here");
         var chests = GameObject.FindGameObjectsWithTag("Chest");
         foreach (var t in chests)
         {
@@ -59,6 +58,43 @@ public class SceneController : MonoBehaviour
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
         var solver = GameObject.FindGameObjectWithTag("ObiSolver");
         solver.SetActive(true);
+        GameManager.instance.ReturnCardsAndOpenButtons();
+    }
+
+    public void OpenNextLevel()
+    {
+        _openNextLevel();
+    }
+
+    private void _openNextLevel()
+    {
+        _destroyOldChest();
+        var loadScene = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
+        loadScene.completed += _unloadOldScene;
+    }
+
+    private void _destroyOldChest()
+    {
+        for (int i = 0; i < chestHolder.transform.childCount; i++)
+        {
+            chestHolder.transform.GetChild(i).gameObject.SetActive(false); 
+        }
+        
+        var solver = GameObject.FindGameObjectWithTag("ObiSolver");
+        Destroy(solver);
+    }
+
+    private void _unloadOldScene(AsyncOperation asyncOperation)
+    {
+        var unloadSceneAsync = SceneManager.UnloadSceneAsync(SceneManager.GetSceneAt(1));
+        unloadSceneAsync.completed += _openSolver;
+        
+    }
+
+    private void _openSolver(AsyncOperation asyncOperation)
+    {
+        var solver = GameObject.FindGameObjectWithTag("ObiSolver");
+        //solver.SetActive(true);
         GameManager.instance.ReturnCardsAndOpenButtons();
     }
 
