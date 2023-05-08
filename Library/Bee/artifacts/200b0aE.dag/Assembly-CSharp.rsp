@@ -343,6 +343,9 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.PlayerPrefsEditor.Editor.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.PlayerPrefsEditor.EditorResources.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.PlayerPrefsEditor.Samples.SampleScene.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -411,6 +414,7 @@
 "Assets/Scripts/OnMouseOver.cs"
 "Assets/Scripts/PlayerPrefInitializer.cs"
 "Assets/Scripts/RopeColliderScript.cs"
+"Assets/Scripts/SceneController.cs"
 "Assets/Scripts/SlotHolder.cs"
 -langversion:9.0
 

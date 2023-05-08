@@ -12,7 +12,7 @@ public class CardMove : MonoBehaviour
     private bool _isMoving;
     private Tween _moveTween, _rotateTween;
     [SerializeField] private int cardLevel;
-    private int _tearTry=5;
+    public int tearTry=5;
     void Start()
     {
         
@@ -31,15 +31,15 @@ public class CardMove : MonoBehaviour
             boxCollider.enabled = false;
             rope.GetComponent<ObiRope>().tearingEnabled = true;
             GameManager.instance.GainMoney(ropeLevel+1);
-            _tearTry--;
+            tearTry--;
         }
         else
         {
             _isMoving = false;
             _moveTween.Kill();
-            _tearTry--;
+            tearTry--;
             boxCollider.gameObject.GetComponent<RopeColliderScript>().ropeLevel--;
-            if (_tearTry<=0)
+            if (tearTry<=0)
             {
                 transform.DOMoveZ(transform.position.z + 2.5f, .5f).OnComplete(()=>_destroyObject());
             }
@@ -54,6 +54,7 @@ public class CardMove : MonoBehaviour
 
     void _destroyObject()
     {
+        _rotateTween.Kill();
         GameManager.instance.DestroyCardAndCheckGameOver(gameObject);
         
     }

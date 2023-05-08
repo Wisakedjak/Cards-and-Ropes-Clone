@@ -22,6 +22,7 @@ public class ChestTrigger : MonoBehaviour
                     GameManager.instance.slots[i].GetComponent<SlotHolder>().isFull = true;
                     GameManager.instance.slots[i].GetComponent<SlotHolder>().cardInSlot = gameObject;
                     GameManager.instance.slots[i].GetComponent<SlotHolder>().cardLevel = chestLevel;
+                    
                     GameManager.instance.chests.Add(gameObject);
                     break;
                 }

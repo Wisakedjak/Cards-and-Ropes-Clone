@@ -56,7 +56,10 @@ public class GameManager : MonoBehaviour
                 t.GetComponent<SlotHolder>().cardLevel = cardLevel;
                 t.GetComponent<SlotHolder>().cardInSlot = createdCard;
                 cards.Add(createdCard.gameObject);
+                int index = slots.FindIndex(a => a.Equals(t));
+                PlayerPrefs.SetInt("isSlot"+(index+1)+"Full",101);
                 _spendMoney();
+                
                 break;
             }
         }
@@ -74,12 +77,16 @@ public class GameManager : MonoBehaviour
 
     private void _destroyCardAndCheckGameOver(GameObject card)
     {
-        cards.Remove(card);
-        Destroy(card);
-        if (cards.Count<=0)
+        
+        card.SetActive(false);
+        for (int i = 0; i < cards.Count; i++)
         {
-            _gameOver();
+            if (cards[i].activeSelf)
+            {
+                return;
+            }
         }
+        _gameOver();
     }
 
     private void _gameOver()
@@ -91,6 +98,7 @@ public class GameManager : MonoBehaviour
         else
         {
             print("restart");
+           SceneController.instance.RestartLevel();
         }
         
     }
@@ -128,6 +136,8 @@ public class GameManager : MonoBehaviour
         parent.GetComponent<SlotHolder>().isFull = false;
         parent.GetComponent<SlotHolder>().cardLevel = 0;
         parent.GetComponent<SlotHolder>().cardInSlot = null;
+        int index = slots.FindIndex(a => a.Equals(parent));
+        PlayerPrefs.SetInt("isSlot"+(index+1)+"Full",0);
         var t = slotOver.transform;
         Destroy(selectedObject);
         Destroy(slotOver.GetComponent<SlotHolder>().cardInSlot);
@@ -136,7 +146,8 @@ public class GameManager : MonoBehaviour
         t.GetComponent<SlotHolder>().isFull = true;
         t.GetComponent<SlotHolder>().cardLevel = cardLevel+1;
         t.GetComponent<SlotHolder>().cardInSlot = createdCard;
-       
+        int indexSlotOver = slots.FindIndex(a => a.Equals(t));
+        PlayerPrefs.SetInt("isSlot"+(indexSlotOver+1)+"Full",100+cardLevel+1);
         cards.Add(createdCard.gameObject);
     }
 
@@ -153,6 +164,8 @@ public class GameManager : MonoBehaviour
         parent.GetComponent<SlotHolder>().isFull = false;
         parent.GetComponent<SlotHolder>().cardLevel = 0;
         parent.GetComponent<SlotHolder>().cardInSlot = null;
+        int index = slots.FindIndex(a => a.Equals(parent));
+        PlayerPrefs.SetInt("isSlot"+(index+1)+"Full",0);
         var t = slotOver.transform;
         Destroy(selectedObject);
         Destroy(slotOver.GetComponent<SlotHolder>().cardInSlot);
@@ -161,6 +174,8 @@ public class GameManager : MonoBehaviour
         t.GetComponent<SlotHolder>().isFull = true;
         t.GetComponent<SlotHolder>().cardLevel = cardLevel+1;
         t.GetComponent<SlotHolder>().cardInSlot = createdChest;
+        int indexSlotOver = slots.FindIndex(a => a.Equals(t));
+        PlayerPrefs.SetInt("isSlot"+(indexSlotOver+1)+"Full",200+cardLevel+1);
         chests.Add(createdChest.gameObject);
         createdChest.tag = "ChestCollected";
     }
@@ -256,6 +271,8 @@ public class GameManager : MonoBehaviour
         createdCard.transform.localPosition = new Vector3(0, .12f, 0);
         slotOver.GetComponent<SlotHolder>().cardLevel = cardLevel;
         slotOver.GetComponent<SlotHolder>().cardInSlot = createdCard;
+        int indexSlotOver = slots.FindIndex(a => a.Equals(slotOver.transform));
+        PlayerPrefs.SetInt("isSlot"+(indexSlotOver+1)+"Full",100+cardLevel);
         cards.Add(createdCard);
     }
 
@@ -272,7 +289,24 @@ public class GameManager : MonoBehaviour
             _isProgressCompleted = true;
         }
     }
-    
+
+    public void ReturnCardsAndOpenButtons()
+    {
+        _returnCards();
+        _checkCreateButtonIntractability();
+        throwBtn.interactable = true;
+    }
+
+    private void _returnCards()
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].transform.localPosition = new Vector3(0, .12f, 0);
+            cards[i].transform.localRotation = Quaternion.Euler(Vector3.zero);
+            cards[i].GetComponent<CardMove>().tearTry = 5;
+            cards[i].SetActive(true);
+        }
+    }
     
 
     

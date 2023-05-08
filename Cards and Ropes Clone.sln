@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{4795d0b2-03a3-61e6-45f8-608e58ecee91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.Samples.SampleScene", "Unity.PlayerPrefsEditor.Samples.SampleScene.csproj", "{3c88ab67-747f-561c-f57b-f76faf6bbecd}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obi.Editor", "Obi.Editor.csproj", "{ce40625d-beef-cd44-8dab-b356e77c58a3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.Editor", "Unity.PlayerPrefsEditor.Editor.csproj", "{cdae7fed-1007-3da7-c5ee-326b6ba1453c}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.EditorResources", "Unity.PlayerPrefsEditor.EditorResources.csproj", "{6dcec99e-65b0-6715-68ca-977ffe6741bc}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-firstpass", "Assembly-CSharp-Editor-firstpass.csproj", "{6d6cfccf-7a9c-aee4-55c7-3fd6a3f25b28}"
 EndProject
@@ -22,8 +28,14 @@ Global
 		{6c9b3d3f-2121-2299-93cf-78753dd9d62f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4795d0b2-03a3-61e6-45f8-608e58ecee91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4795d0b2-03a3-61e6-45f8-608e58ecee91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3c88ab67-747f-561c-f57b-f76faf6bbecd}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3c88ab67-747f-561c-f57b-f76faf6bbecd}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ce40625d-beef-cd44-8dab-b356e77c58a3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ce40625d-beef-cd44-8dab-b356e77c58a3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{cdae7fed-1007-3da7-c5ee-326b6ba1453c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{cdae7fed-1007-3da7-c5ee-326b6ba1453c}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6dcec99e-65b0-6715-68ca-977ffe6741bc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6dcec99e-65b0-6715-68ca-977ffe6741bc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6d6cfccf-7a9c-aee4-55c7-3fd6a3f25b28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6d6cfccf-7a9c-aee4-55c7-3fd6a3f25b28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

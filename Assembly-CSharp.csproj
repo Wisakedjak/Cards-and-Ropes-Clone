@@ -48,31 +48,39 @@
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ObiParticleCounter.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ColliderHighlighter.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/CollisionEventHandler.cs" />
+     <Compile Include="Assets/Scripts/CardMove.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/GrapplingHook.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ActorCOMTransform.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/SlowmoToggler.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/ExtendableGrapplingHook.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/DebugParticleFrames.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/CharacterController/SampleCharacterController.cs" />
+     <Compile Include="Assets/Scripts/ChestTrigger.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/CharacterController/ObiCharacter.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/WrapRopePlayerController.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/LookAroundCamera.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RopeNet.cs" />
+     <Compile Include="Assets/Scripts/GiftBoxTrigger.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ObiActorTeleport.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ObjectLimit.cs" />
+     <Compile Include="Assets/Scripts/OnMouseOver.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RopeBetweenTwoPoints.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/SpiralCurve.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RopeTensionColorizer.cs" />
+     <Compile Include="Assets/Scripts/SlotHolder.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CraneController.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/MoveAndRotate.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RuntimeRopeGenerator.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ColorFromPhase.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ColorFromVelocity.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/WrapRopeGameController.cs" />
+     <Compile Include="Assets/Scripts/GameManager.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RuntimeRopeGeneratorUse.cs" />
+     <Compile Include="Assets/Scripts/PlayerPrefInitializer.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ActorSpawner.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RopeSweepCut.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/ColorRandomizer.cs" />
+     <Compile Include="Assets/Scripts/RopeColliderScript.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/Blinker.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/HosePump.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/RopeTenser.cs" />
@@ -80,20 +88,15 @@
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/SnakeController.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CharacterControl2D.cs" />
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CursorController.cs" />
-     <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/WorldSpaceGravity.cs" />
-     <Compile Include="Assets/Scripts/CardMove.cs" />
-     <Compile Include="Assets/Scripts/RopeColliderScript.cs" />
-     <Compile Include="Assets/Scripts/GameManager.cs" />
-     <Compile Include="Assets/Scripts/SlotHolder.cs" />
      <Compile Include="Assets/Scripts/CardDrag.cs" />
-     <Compile Include="Assets/Scripts/OnMouseOver.cs" />
-     <Compile Include="Assets/Scripts/ChestTrigger.cs" />
-     <Compile Include="Assets/Scripts/GiftBoxTrigger.cs" />
-     <Compile Include="Assets/Scripts/PlayerPrefInitializer.cs" />
+     <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/WorldSpaceGravity.cs" />
+     <Compile Include="Assets/Scripts/SceneController.cs" />
+     <Compile Include="Assets/Scripts/EndZoneTrigger.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Animations" />
      <Folder Include="Assets/Obi/Resources/ObiMaterials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
+     <Folder Include="Assets/PlayerPrefsEditor/Samples" />
      <Folder Include="Assets/Obi/Plugins/x86" />
      <None Include="Assets/Obi/Resources/ObiMaterials/ParticleShader.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
@@ -104,6 +107,7 @@
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Models" />
      <Folder Include="Assets/Obi/Plugins/libOni.bundle/Contents/_CodeSignature" />
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
+     <Folder Include="Assets/PlayerPrefsEditor" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <None Include="Assets/Obi/Resources/ObiMaterials/URP/ObiLightingURP.cginc" />
      <Folder Include="Assets/Obi/Resources" />
@@ -156,12 +160,14 @@
      <Folder Include="Assets/TextMesh Pro/Fonts" />
      <Folder Include="Assets/Scripts" />
      <Folder Include="Assets/Obi/Samples/RopeAndRod/SampleResources" />
+     <Folder Include="Assets/PlayerPrefsEditor/Documentation/Images" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <Folder Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts" />
      <Folder Include="Assets/Models/Chests" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/CollisionMaterials" />
      <Folder Include="Assets/Obi/Samples/Common" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources" />
+     <Folder Include="Assets/PlayerPrefsEditor/Documentation" />
      <Folder Include="Assets/Obi/Plugins/iOS" />
      <Folder Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Animations" />
      <Folder Include="Assets/Prefabs/Cards" />
@@ -452,6 +458,9 @@
      <Reference Include="Unity.Burst.Cecil.Rocks">
      <HintPath>/Users/ender/Cards and Ropes Clone/Library/PackageCache/com.unity.burst@1.6.6/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll</HintPath>
      </Reference>
+     <Reference Include="DOTween">
+     <HintPath>/Users/ender/Cards and Ropes Clone/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>/Users/ender/Cards and Ropes Clone/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
@@ -460,9 +469,6 @@
      </Reference>
      <Reference Include="Mono.Cecil">
      <HintPath>/Users/ender/Cards and Ropes Clone/Library/PackageCache/com.unity.nuget.mono-cecil@1.11.4/Mono.Cecil.dll</HintPath>
-     </Reference>
-     <Reference Include="DOTween">
-     <HintPath>/Users/ender/Cards and Ropes Clone/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.22f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -933,6 +939,18 @@
     <ProjectReference Include="Obi.Editor.csproj">
       <Project>{ce40625d-beef-cd44-8dab-b356e77c58a3}</Project>
       <Name>Obi.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.Editor.csproj">
+      <Project>{cdae7fed-1007-3da7-c5ee-326b6ba1453c}</Project>
+      <Name>Unity.PlayerPrefsEditor.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.Samples.SampleScene.csproj">
+      <Project>{3c88ab67-747f-561c-f57b-f76faf6bbecd}</Project>
+      <Name>Unity.PlayerPrefsEditor.Samples.SampleScene</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.EditorResources.csproj">
+      <Project>{6dcec99e-65b0-6715-68ca-977ffe6741bc}</Project>
+      <Name>Unity.PlayerPrefsEditor.EditorResources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
