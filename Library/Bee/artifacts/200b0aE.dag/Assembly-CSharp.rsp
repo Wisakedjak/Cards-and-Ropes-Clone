@@ -407,7 +407,9 @@
 "Assets/Scripts/CardMove.cs"
 "Assets/Scripts/ChestTrigger.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/GiftBoxTrigger.cs"
 "Assets/Scripts/OnMouseOver.cs"
+"Assets/Scripts/PlayerPrefInitializer.cs"
 "Assets/Scripts/RopeColliderScript.cs"
 "Assets/Scripts/SlotHolder.cs"
 -langversion:9.0

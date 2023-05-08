@@ -88,6 +88,8 @@
      <Compile Include="Assets/Scripts/CardDrag.cs" />
      <Compile Include="Assets/Scripts/OnMouseOver.cs" />
      <Compile Include="Assets/Scripts/ChestTrigger.cs" />
+     <Compile Include="Assets/Scripts/GiftBoxTrigger.cs" />
+     <Compile Include="Assets/Scripts/PlayerPrefInitializer.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Animations" />
      <Folder Include="Assets/Obi/Resources/ObiMaterials" />
@@ -172,6 +174,7 @@
      <Folder Include="Assets/Obi/Resources/GUI" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets/Prefabs/Chests" />
      <Folder Include="Assets/Scenes" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
      <Folder Include="Assets/Obi/Plugins" />

@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
     public List<GameObject> chests = new List<GameObject>();
     [SerializeField] private List<GameObject> cardPrefabs = new List<GameObject>();
     [SerializeField] private List<GameObject> chestPrefabs = new List<GameObject>();
-    [SerializeField]private GameObject level1CardGameObject;
-    public int money;
+    private int _money;
     [SerializeField]private int moneyForCreateCard;
-    [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI moneyText,progressText;
     [SerializeField] private Button createBtn, throwBtn;
-
+    private int _currentProgress, _maxProgress,_currentLevel;
+    [SerializeField] private List<int> levelProgressCounts = new List<int>();
+    private bool _isProgressCompleted;
+    
     public static GameManager instance;
 
     private void Awake()
@@ -28,7 +30,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        moneyText.text = money.ToString();
+        _currentLevel = PlayerPrefs.GetInt("CurrentLevel");
+        _maxProgress = levelProgressCounts[_currentLevel-1];
+        progressText.text = _currentProgress + "/" + _maxProgress;
+        _money = PlayerPrefs.GetInt("CurrentGold");
+        moneyText.text = _money.ToString();
        _checkCreateButtonIntractability();
     }
 
@@ -39,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void _createCard(int cardLevel)
     {
-        if (money>=moneyForCreateCard)
+        if (_money>=moneyForCreateCard)
         {
             foreach (var t in slots)
             {
@@ -50,8 +56,7 @@ public class GameManager : MonoBehaviour
                 t.GetComponent<SlotHolder>().cardLevel = cardLevel;
                 t.GetComponent<SlotHolder>().cardInSlot = createdCard;
                 cards.Add(createdCard.gameObject);
-                money -= moneyForCreateCard;
-                moneyText.text = money.ToString();
+                _spendMoney();
                 break;
             }
         }
@@ -79,7 +84,15 @@ public class GameManager : MonoBehaviour
 
     private void _gameOver()
     {
-        print("gameOver");
+        if (_isProgressCompleted)
+        {
+            print("win");
+        }
+        else
+        {
+            print("restart");
+        }
+        
     }
 
     public void GainMoney(int money)
@@ -90,9 +103,16 @@ public class GameManager : MonoBehaviour
     IEnumerator GainMoneyCoroutine(int money)
     {
         yield return new WaitForSeconds(.3f);
-        this.money += money;
-        moneyText.text = this.money.ToString();
+        _money += money;
+        moneyText.text = _money.ToString();
+        PlayerPrefs.SetInt("CurrentGold",_money);
+    }
 
+    private void _spendMoney()
+    {
+        _money -= moneyForCreateCard;
+        moneyText.text = _money.ToString();
+        PlayerPrefs.SetInt("CurrentGold",_money);
     }
 
     public void MergeCard(GameObject selectedObject,GameObject slotOver,int cardLevel)
@@ -148,7 +168,7 @@ public class GameManager : MonoBehaviour
 
     void _checkCreateButtonIntractability()
     {
-        if (money>=moneyForCreateCard)
+        if (_money>=moneyForCreateCard)
         {
             createBtn.interactable = true;
         }
@@ -238,6 +258,22 @@ public class GameManager : MonoBehaviour
         slotOver.GetComponent<SlotHolder>().cardInSlot = createdCard;
         cards.Add(createdCard);
     }
+
+    public void IncreaseProgress()
+    {
+        _increaseProgress();
+    }
+
+    private void _increaseProgress()
+    {
+        _currentProgress++;
+        if (_currentProgress>=_maxProgress)
+        {
+            _isProgressCompleted = true;
+        }
+    }
+    
+    
 
     
     void Update()
