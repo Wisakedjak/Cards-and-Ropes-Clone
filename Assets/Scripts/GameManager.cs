@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
     private int _currentProgress, _maxProgress,_currentLevel;
     [SerializeField] private List<int> levelProgressCounts = new List<int>();
     private bool _isProgressCompleted;
-    
+    [SerializeField] private List<ParticleSystem> confetti = new List<ParticleSystem>();
+
     public static GameManager instance;
 
     private void Awake()
@@ -117,15 +118,19 @@ public class GameManager : MonoBehaviour
             }
         }
         print("_destroyCardAndCheckGameOver after foreach");
-        Invoke(nameof(_gameOver),3f);
+        _gameOver();
+        
     }
 
     private void _gameOver()
     {
         if (_isProgressCompleted)
         {
-            print("next Level");
-            _openNextLevel();
+            Invoke(nameof(_openNextLevel),3);
+            foreach (var t in confetti)
+            {
+                t.Play();
+            }
         }
         else
         {

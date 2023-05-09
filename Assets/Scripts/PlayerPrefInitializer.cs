@@ -9,11 +9,11 @@ public class PlayerPrefInitializer : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("CurrentLevel"))
         {
-            PlayerPrefs.SetInt("CurrentLevel", 10);
+            PlayerPrefs.SetInt("CurrentLevel", 1);
         }
         if (!PlayerPrefs.HasKey("CurrentGold"))
         {
-            PlayerPrefs.SetInt("CurrentGold", 1000);
+            PlayerPrefs.SetInt("CurrentGold", 100);
         }
         if (!PlayerPrefs.HasKey("isSlot1Full"))
         {

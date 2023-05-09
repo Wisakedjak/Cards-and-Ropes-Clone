@@ -64,11 +64,15 @@ public class CardDrag : MonoBehaviour
                         slotOver.GetComponent<SlotHolder>().cardLevel = parent.GetComponent<SlotHolder>().cardLevel;
                         parent.GetComponent<SlotHolder>().cardLevel = 0;
                         parent.GetComponent<SlotHolder>().cardInSlot = null;
+                        int indexSlot = GameManager.instance.slots.FindIndex(a => a.Equals(parent));
+                        PlayerPrefs.SetInt("isSlot"+(indexSlot+1)+"Full",0);
                         parent = slotOver.transform;
                         parent.GetComponent<SlotHolder>().cardInSlot = _selectedObject;
                         _selectedObject.transform.parent = parent;
                         _selectedObject.transform.localPosition = new Vector3(0, .12f, 0);
                         slotOver.GetComponent<SlotHolder>().isFull = true;
+                        int indexSlotOver = GameManager.instance.slots.FindIndex(a => a.Equals(parent));
+                        PlayerPrefs.SetInt("isSlot"+(indexSlotOver+1)+"Full",100+parent.GetComponent<SlotHolder>().cardLevel);
                         _selectedObject = null;
                     }
                     else

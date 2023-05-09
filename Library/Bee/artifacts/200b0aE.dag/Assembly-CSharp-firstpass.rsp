@@ -373,6 +373,9 @@
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs"
 "Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs"
+"Assets/Plugins/Super Confetti FX/Demo/Scripts/Confetti2Cycler.cs"
+"Assets/Plugins/Super Confetti FX/Demo/Scripts/Confetti2SceneSelect.cs"
+"Assets/Plugins/Super Confetti FX/Demo/Scripts/Confetti2TimeSlider.cs"
 -langversion:9.0
 
 /deterministic
