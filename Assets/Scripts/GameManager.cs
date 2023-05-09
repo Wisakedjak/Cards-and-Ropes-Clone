@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
             }
         }
         print("_destroyCardAndCheckGameOver after foreach");
-        _gameOver();
+        Invoke(nameof(_gameOver),3f);
     }
 
     private void _gameOver()
@@ -221,14 +221,7 @@ public class GameManager : MonoBehaviour
 
     void _checkCreateButtonIntractability()
     {
-        if (_money>=moneyForCreateCard)
-        {
-            createBtn.interactable = true;
-        }
-        else
-        {
-            createBtn.interactable = false;
-        }
+        createBtn.interactable = _money>=moneyForCreateCard;
     }
 
     public void ThrowCard()

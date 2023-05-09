@@ -92,6 +92,7 @@
      <Compile Include="Assets/Obi/Samples/RopeAndRod/SampleResources/Scripts/CursorController.cs" />
      <Compile Include="Assets/Scripts/CardDrag.cs" />
      <Compile Include="Assets/Obi/Samples/Common/SampleResources/Scripts/WorldSpaceGravity.cs" />
+     <Compile Include="Assets/Scripts/GenerateLevelController.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Obi/Samples/Common/SampleResources/Animations" />
      <Folder Include="Assets/Obi/Resources/ObiMaterials" />

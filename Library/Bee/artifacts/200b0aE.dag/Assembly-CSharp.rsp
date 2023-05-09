@@ -411,6 +411,7 @@
 "Assets/Scripts/ChestTrigger.cs"
 "Assets/Scripts/EndZoneTrigger.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/GenerateLevelController.cs"
 "Assets/Scripts/GiftBoxTrigger.cs"
 "Assets/Scripts/OnMouseOver.cs"
 "Assets/Scripts/PlayerPrefInitializer.cs"

@@ -16,7 +16,16 @@ public class SceneController : MonoBehaviour
 
     private void _loadCurrentLevelScene()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
+        if (PlayerPrefs.GetInt("CurrentLevel")<11)
+        {
+            SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
+         
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync(11, LoadSceneMode.Additive);
+            
+        }
     }
 
     public void RestartLevel()
@@ -28,8 +37,18 @@ public class SceneController : MonoBehaviour
     {
         _findAndMoveOldChests();
 
-        var loadScene = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
-        loadScene.completed += _findAndCloseNewChests;
+        if (PlayerPrefs.GetInt("CurrentLevel")<11)
+        {
+            var loadScene = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
+            loadScene.completed += _findAndCloseNewChests;
+        }
+        else
+        {
+            var loadScene = SceneManager.LoadSceneAsync(11, LoadSceneMode.Additive);
+            loadScene.completed += _findAndCloseNewChests;
+        }
+        
+        
     }
 
     private void _findAndMoveOldChests()
@@ -69,8 +88,16 @@ public class SceneController : MonoBehaviour
     private void _openNextLevel()
     {
         _destroyOldChest();
-        var loadScene = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
-        loadScene.completed += _unloadOldScene;
+        if (PlayerPrefs.GetInt("CurrentLevel")<11)
+        {
+            var loadScene = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("CurrentLevel"), LoadSceneMode.Additive);
+            loadScene.completed += _unloadOldScene;
+        }
+        else
+        {
+            var loadScene = SceneManager.LoadSceneAsync(11, LoadSceneMode.Additive);
+            loadScene.completed += _unloadOldScene;
+        }
     }
 
     private void _destroyOldChest()
